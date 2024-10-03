@@ -20,7 +20,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-//import com.example.businesscard.R
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.Place
+import androidx.compose.material3.Icon
+import androidx.compose.ui.graphics.Color
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +73,63 @@ fun BusinessCard() {
 
             Text(
                 text = "Roammer",
+                fontSize = 16.sp
+            )
+        }
+        Column(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth()
+        ) {
+            ContactItem(
+                icon = Icons.Default.Phone,
+                contactType = "Phone",
+                contactValue = "+62 858-9449-5598"
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            ContactItem(
+                icon = Icons.Default.Email,
+                contactType = "Email",
+                contactValue = "anamihsan96@gmail.com"
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            ContactItem(
+                icon = Icons.Default.Place,
+                contactType = "Address",
+                contactValue = "St, Kemayoran, Jakarta pusat"
+            )
+        }
+
+    }
+}
+
+@Composable
+fun ContactItem(icon: androidx.compose.ui.graphics.vector.ImageVector, contactType: String, contactValue: String) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = contactType,
+            modifier = Modifier.size(24.dp),
+            tint = Color.Gray
+        )
+
+        Spacer(modifier = Modifier.width(16.dp))
+
+        Column {
+            Text(
+                text = contactType,
+                fontSize = 14.sp,
+                color = Color.Gray
+            )
+            Text(
+                text = contactValue,
                 fontSize = 16.sp
             )
         }
