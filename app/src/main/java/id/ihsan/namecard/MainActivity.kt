@@ -32,39 +32,39 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                BusinessCard()
+                BusinessCard() // Mengimport function BusinessCard
             }
         }
     }
 }
 
 @Composable
-fun BusinessCard() {
-    Card(
-        modifier = Modifier
+fun BusinessCard() { // Function BusinessCard
+    Card( // Untuk membentuk block Kartu
+        modifier = Modifier // untuk memodifikasi ukuran, jarak dll
             .padding(16.dp)
             .fillMaxWidth(),
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(10.dp), // untuk membuat radius pada kartu
 //        elevation = 4.dp
     ) {
-        Column(
+        Column( // untuk membuat konten vertical
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally // untuk menengahkan konten yang ada pada vertikal konten
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.profile_picture),
+            Image( // untuk membuat gambar
+                painter = painterResource(id = R.drawable.profile_picture), // untuk mengimport gambar
                 contentDescription = "Profile Picture",
                 modifier = Modifier
                     .size(100.dp)
                     .clip(CircleShape),
-                contentScale = ContentScale.Crop
+                contentScale = ContentScale.Crop // untuk mengatur ukuran gambar
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(8.dp)) // untuk membuat space pada setiap komponen
 
-            Text(
+            Text( // membuat konteks
                 text = "Anam Ihsan",
                 fontSize = 24.sp
             )
@@ -81,10 +81,10 @@ fun BusinessCard() {
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            ContactItem(
-                icon = Icons.Default.Phone,
-                contactType = "Phone",
-                contactValue = "+62 858-9449-5598"
+            ContactItem( // menggunakan function contactItem
+                icon = Icons.Default.Phone, // Icon
+                contactType = "Phone", // text
+                contactValue = "+62 858-9449-5598" // Text
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -108,12 +108,12 @@ fun BusinessCard() {
 }
 
 @Composable
-fun ContactItem(icon: androidx.compose.ui.graphics.vector.ImageVector, contactType: String, contactValue: String) {
-    Row(
+fun ContactItem(icon: androidx.compose.ui.graphics.vector.ImageVector, contactType: String, contactValue: String) { // function contactItem
+    Row( // Untuk membuat konten horizontal
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth()
     ) {
-        Icon(
+        Icon( // Icon
             imageVector = icon,
             contentDescription = contactType,
             modifier = Modifier.size(24.dp),
